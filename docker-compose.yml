@@ -1,0 +1,43 @@
+# =============================================
+# GitBrowser - docker-compose
+# =============================================
+
+services:
+
+  # ── Backend API ──────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: gitbrowser-backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    expose:
+      - "3001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - gitbrowser-net
+
+  # ── Frontend (Nginx) ──────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: gitbrowser-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=http://backend:3001
+    networks:
+      - gitbrowser-net
+
+networks:
+  gitbrowser-net:
+    driver: bridge
