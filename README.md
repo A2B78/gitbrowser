@@ -37,7 +37,7 @@
 - ✅ Sélection dynamique des modèles
 
 ### 🎨 Interface
-- ✅ Design sombre style PipelineAI
+- ✅ Design sombre
 - ✅ Responsive (mobile + desktop)
 - ✅ Interface intuitive
 - ✅ Animations fluides
