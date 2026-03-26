@@ -51,7 +51,7 @@ En participant à ce projet, tu t'engages à respecter notre Code de conduite :
 
 **1. Clone le repository**
 ```bash
-git clone https://github.com/ton-user/gitbrowser.git
+git clone https://github.com/A2B78/gitbrowser.git
 cd gitbrowser
 ```
 
@@ -74,7 +74,7 @@ npm run dev
 **4. Docker (alternative)**
 ```bash
 cp .env.example .env
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Structure du projet

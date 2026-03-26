@@ -95,7 +95,7 @@ gitbrowser/
 
 **1. Clone le projet**
 ```bash
-git clone <ton-repo> gitbrowser
+git clone https://github.com/A2B78/gitbrowser.git gitbrowser
 cd gitbrowser
 ```
 
@@ -121,7 +121,7 @@ GITHUB_CLIENT_SECRET=ton_client_secret
 
 **4. Lance l'application**
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 **5. Accède à l'application**
@@ -182,7 +182,7 @@ L'application sera disponible sur http://localhost:5173
 | `AI_PROVIDER` | Provider IA par défaut | `openai` |
 | `AI_API_KEY` | Clé API du provider | `sk-...` |
 | `AI_MODEL` | Modèle par défaut | `gpt-4` |
-| `OLLAMA_URL` | URL d'Ollama | `http://192.168.1.57:11434` |
+| `OLLAMA_URL` | URL d'Ollama | `http://localhost:11434` |
 | `AI_API_URL` | URL API compatible OpenAI | `http://localhost:8080/v1` |
 
 ---
@@ -218,7 +218,7 @@ AI_MODEL=claude-3-sonnet-20240229
 #### 3. Ollama (Local, Gratuit)
 ```bash
 AI_PROVIDER=ollama
-OLLAMA_URL=http://192.168.1.57:11434
+OLLAMA_URL=http://localhost:11434
 AI_MODEL=codellama:latest
 ```
 
@@ -289,7 +289,7 @@ Pour LocalAI, vLLM, ou autres alternatives.
 
 ## 🐳 Docker
 
-### docker-compose.yml
+### docker compose.yml
 
 ```yaml
 services:
@@ -313,22 +313,22 @@ services:
 
 ```bash
 # Démarrer
-docker-compose up -d
+docker compose up -d
 
 # Arrêter
-docker-compose down
+docker compose down
 
 # Reconstruire
-docker-compose up -d --build
+docker compose up -d --build
 
 # Voir les logs
-docker-compose logs -f
+docker compose logs -f
 
 # Logs backend
-docker-compose logs backend
+docker compose logs backend
 
 # Logs frontend
-docker-compose logs frontend
+docker compose logs frontend
 ```
 
 ---

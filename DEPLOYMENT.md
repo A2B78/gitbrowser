@@ -47,7 +47,7 @@ Documentation complète pour déployer GitBrowser en production.
 
 **1. Clone le repository**
 ```bash
-git clone https://github.com/ton-user/gitbrowser.git
+git clone https://github.com/A2B78/gitbrowser.git
 cd gitbrowser
 ```
 
@@ -69,16 +69,16 @@ nano .env
 
 **4. Lance les services**
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 **5. Vérifie le déploiement**
 ```bash
 # Vérifie les conteneurs
-docker-compose ps
+docker compose ps
 
 # Vérifie les logs
-docker-compose logs -f
+docker compose logs -f
 
 # Teste l'API
 curl http://localhost:3001/health
@@ -87,8 +87,6 @@ curl http://localhost:3001/health
 ### Configuration Docker Compose
 
 ```yaml
-version: '3.8'
-
 services:
   backend:
     build: ./backend
@@ -304,7 +302,7 @@ AI_MODEL=claude-3-sonnet-20240229
 
 # Ollama
 AI_PROVIDER=ollama
-OLLAMA_URL=http://192.168.1.57:11434
+OLLAMA_URL=http://localhost:11434
 AI_MODEL=codellama:latest
 ```
 
@@ -336,16 +334,16 @@ curl http://localhost:3001/health
 
 ```bash
 # Tous les logs
-docker-compose logs -f
+docker compose logs -f
 
 # Backend uniquement
-docker-compose logs -f backend
+docker compose logs -f backend
 
 # Frontend uniquement
-docker-compose logs -f frontend
+docker compose logs -f frontend
 
 # Dernières 100 lignes
-docker-compose logs --tail=100 -f
+docker compose logs --tail=100 -f
 ```
 
 ### Monitoring avec PM2
@@ -406,7 +404,7 @@ mkdir -p $BACKUP_DIR
 cp .env $BACKUP_DIR/env_$DATE
 
 # Sauvegarde les logs Docker
-docker-compose logs > $BACKUP_DIR/logs_$DATE.txt
+docker compose logs > $BACKUP_DIR/logs_$DATE.txt
 
 # Sauvegarde les volumes Docker (si utilisés)
 # docker run --rm -v gitbrowser_data:/data -v $BACKUP_DIR:/backup alpine tar czf /backup/data_$DATE.tar.gz /data
@@ -428,13 +426,13 @@ if [ -z "$BACKUP_FILE" ]; then
 fi
 
 # Arrête les services
-docker-compose down
+docker compose down
 
 # Restaure la configuration
 cp $BACKUP_FILE .env
 
 # Redémarre les services
-docker-compose up -d
+docker compose up -d
 
 echo "✅ Restauration terminée"
 ```
@@ -453,14 +451,14 @@ echo "✅ Restauration terminée"
 git pull origin main
 
 # 3. Reconstruit les images
-docker-compose down
-docker-compose build --no-cache
+docker compose down
+docker compose build --no-cache
 
 # 4. Redémarre
-docker-compose up -d
+docker compose up -d
 
 # 5. Vérifie
-docker-compose ps
+docker compose ps
 curl http://localhost:3001/health
 ```
 
@@ -492,7 +490,7 @@ curl http://localhost:3001/health
 
 ```bash
 # 1. Arrête les services
-docker-compose down
+docker compose down
 
 # 2. Checkout la version précédente
 git checkout <previous-commit-hash>
@@ -501,7 +499,7 @@ git checkout <previous-commit-hash>
 ./restore.sh /backup/gitbrowser/env_<date>
 
 # 4. Redémarre
-docker-compose up -d
+docker compose up -d
 ```
 
 ---
@@ -599,7 +597,7 @@ curl -H "Authorization: token <token>" https://api.github.com/rate_limit
 ## 📞 Support
 
 Pour les problèmes de déploiement :
-- Consulte les logs : `docker-compose logs -f`
+- Consulte les logs : `docker compose logs -f`
 - Vérifie la santé : `curl http://localhost:3001/health`
 - Ouvre une issue sur GitHub
 

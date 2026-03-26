@@ -28,18 +28,18 @@ Ce guide vous aide à résoudre les problèmes courants rencontrés avec GitBrow
 
 1. **Vérifiez que les conteneurs sont en cours d'exécution :**
 ```bash
-docker-compose ps
+docker compose ps
 ```
 
 2. **Vérifiez les logs du frontend :**
 ```bash
-docker-compose logs frontend
+docker compose logs frontend
 ```
 
 3. **Redémarrez les conteneurs :**
 ```bash
-docker-compose down
-docker-compose up -d
+docker compose down
+docker compose up -d
 ```
 
 ---
@@ -54,7 +54,7 @@ docker-compose up -d
 
 1. **Vérifiez les logs du backend :**
 ```bash
-docker-compose logs backend
+docker compose logs backend
 ```
 
 2. **Vérifiez les variables d'environnement :**
@@ -83,7 +83,7 @@ lsof -i :3001
 2. **Vérifiez les permissions GitHub**
 3. **Vérifiez les logs d'authentification :**
 ```bash
-docker-compose logs backend | grep -i auth
+docker compose logs backend | grep -i auth
 ```
 
 ---
@@ -140,9 +140,9 @@ docker system prune -a
 
 3. **Reconstruisez les images :**
 ```bash
-docker-compose down
-docker-compose build --no-cache
-docker-compose up -d
+docker compose down
+docker compose build --no-cache
+docker compose up -d
 ```
 
 ---
@@ -187,15 +187,15 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 ```bash
 git pull origin main
-docker-compose down
-docker-compose up -d --build
+docker compose down
+docker compose up -d --build
 ```
 
 ---
 
 ## 🆘 Besoin d'aide ?
 
-1. Consultez les logs : `docker-compose logs -f`
+1. Consultez les logs : `docker compose logs -f`
 2. Ouvrez une issue sur GitHub
 
 ---

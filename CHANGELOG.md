@@ -79,10 +79,10 @@ et ce projet adhère au [Versionnement Sémantique](https://semver.org/lang/fr/)
 
 ## 🔗 Liens
 
-- [Repository GitHub](https://github.com/ton-user/gitbrowser)
+- [Repository GitHub](https://github.com/A2B78/gitbrowser)
 - [Documentation](./README.md)
-- [Issues](https://github.com/ton-user/gitbrowser/issues)
-- [Releases](https://github.com/ton-user/gitbrowser/releases)
+- [Issues](https://github.com/A2B78/gitbrowser/issues)
+- [Releases](https://github.com/A2B78/gitbrowser/releases)
 
 ---
 
