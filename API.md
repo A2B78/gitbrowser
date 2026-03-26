@@ -640,7 +640,7 @@ Authorization: Bearer <jwt_token>
 {
   "success": false,
   "provider": "ollama",
-  "error": "Impossible de se connecter à Ollama (http://192.168.1.57:11434/api/chat). Vérifiez que le service est accessible."
+  "error": "Impossible de se connecter à Ollama (http://localhost:11434/api/chat). Vérifiez que le service est accessible."
 }
 ```
 

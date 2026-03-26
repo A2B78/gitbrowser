@@ -95,7 +95,7 @@ gitbrowser/
 
 **1. Clone le projet**
 ```bash
-git clone https://github.com/A2B78/gitbrowser.git gitbrowser
+git clone https://github.com/A2B78/gitbrowser.git
 cd gitbrowser
 ```
 
